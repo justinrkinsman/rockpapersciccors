@@ -5,9 +5,13 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-
+    if (playerSelection == 'Rock') {
+        return ("You Win");
+    } else if (playerSelection !== 'Rock') {
+        return ("You Lose");
+    }
 }
 
-const playerSelection = 'rock';
+const playerSelection = 'Rock';
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection))
