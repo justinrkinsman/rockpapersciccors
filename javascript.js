@@ -22,6 +22,13 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = 'scissors';
+let playerSelection = prompt('Make your selection:')
 const computerSelection = computerPlay();
+
+function game() {
+    for (let i = 1; i <= 5; i++) {
+        playRound(playerSelection, computerSelection);
+    }
+}
+
 console.log(playRound(playerSelection, computerSelection))
