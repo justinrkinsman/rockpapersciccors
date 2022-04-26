@@ -1,31 +1,27 @@
 function computerPlay() {
-    let selections = ['Rock','Paper','Scissors']
+    let selections = ['ROCK','PAPER','SCISSORS']
     let randSel = selections[Math.floor(Math.random()*selections.length)];
     return randSel;
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == computerSelection) {
+    if (playerSelection.toUpperCase() == computerSelection) {
         return ('Tie Game');
-    } else if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
-        return (`You Win! ${playerSelection} beats ${computerSelection}`);
-    } else if (playerSelection == 'Rock' && computerSelection == 'Paper') {
-        return (`You Lose! ${computerSelection} beats ${playerSelection}`);
-    } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
-        return (`You Win! ${playerSelection} beats ${computerSelection}`);
-    } else if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
-        return (`You Lose! ${computerSelection} beats ${playerSelection}`);
-    } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
-        return (`You Win! ${playerSelection} beats ${computerSelection}`);
-    } else if (playerSelection == 'Scissors' && computerSelection == 'Rock') {
-        return (`You Lose! ${computerSelection} beats ${playerSelection}`);
+    } else if (playerSelection.toUpperCase() == 'ROCK' && computerSelection == 'SCISSORS') {
+        return (`You Win! ${playerSelection.toUpperCase()} beats ${computerSelection}`);
+    } else if (playerSelection.toUpperCase() == 'ROCK' && computerSelection == 'PAPER') {
+        return (`You Lose! ${computerSelection} beats ${playerSelection.toUpperCase()}`);
+    } else if (playerSelection.toUpperCase() == 'PAPER' && computerSelection == 'ROCK') {
+        return (`You Win! ${playerSelection.toUpperCase()} beats ${computerSelection}`);
+    } else if (playerSelection.toUpperCase() == 'PAPER' && computerSelection == 'SCISSORS') {
+        return (`You Lose! ${computerSelection} beats ${playerSelection.toUpperCase()}`);
+    } else if (playerSelection.toUpperCase() == 'SCISSORS' && computerSelection == 'PAPER') {
+        return (`You Win! ${playerSelection.toUpperCase()} beats ${computerSelection}`);
+    } else if (playerSelection.toUpperCase() == 'SCISSORS' && computerSelection == 'ROCK') {
+        return (`You Lose! ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}`);
     }
 }
 
-function capitalizeFirstLetter(playerSelection) {
-    return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-}
-
-const playerSelection = 'Scissors';
+const playerSelection = 'scissors';
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection))
