@@ -1,21 +1,60 @@
-function computerPlay() {
-    let selections = ['ROCK','PAPER','SCISSORS']
-    let randSel = selections[Math.floor(Math.random()*selections.length)];
-    return randSel;
-}
+const options = document.querySelectorAll('.options');
 let playerScore = 0;
 let computerScore = 0;
+options.forEach((option) => {
+    option.addEventListener("click", function () {
+    const playerChoice = this.textContent;
+    const computerChoice = ['Rock', 'Paper', 'Scissors']
+    const computerPlay = computerChoice[Math.floor(Math.random() * 3)];
+    playRound(playerChoice, computerPlay)
+    updateScore();
+    });
+});
 
-const rock = document.querySelector('#rock');
-rock.addEventListener('click', playRound());
+function playRound(playerChoice, computerPlay) {
+    if (playerChoice === computerPlay) {
+        return(`Tie game`);
+    }
+    if (playerChoice === 'Rock') {
+        if (computerPlay === 'Paper') {
+            return (`You Win! ${playerChoice} beats ${computerPlay} Player Score ${++playerScore}`);
+            playerScore++
+        }else{
+            return (`You Lose! ${computerPlay} beats ${playerChoice} Computer Score ${++computerScore}`);
+            computerScore++
+        }
+    }
+    if (playerChoice === 'Paper') {
+        if (computerPlay == 'Rock') {
+            return (`You Win! ${playerChoice} beats ${computerPlay} Player Score ${++playerScore}`);
+            playerScore++
+        }else{
+            return (`You Lose! ${computerPlay} beats ${playerChoice} Computer Score ${++computerScore}`);
+            computerScore++
+        }
+    }
+    if (playerChoice === 'Scissors') {
+        if (computerPlay === 'Paper') {
+            return (`You Win! ${playerChoice} beats ${computerPlay} Player Score ${++playerScore}`);
+            playerScore++
+        }else{
+            return (`You Lose! ${computerPlay} beats ${playerChoice} Computer Score ${++computerScore}`)
+            computerScore++
+        }
+    }
+}
 
-const paper = document.querySelector('#paper');
-paper.addEventListener('click', playRound());
+function updateScore() {
+    document.getElementById('playerScore').textContent = playerScore;
+    document.getElementById('computerScore').textContent = computerScore;
+}
 
-const scissors = document.querySelector('#scissors');
-scissors.addEventListener('click', playRound());
+function checkWinner () {
 
-function playRound() {
+}
+
+
+/*function playRound() {
     let playerSelection;
     let computerSelection = computerPlay();
 
@@ -30,9 +69,9 @@ function playRound() {
         console.log ('Tie Game')
     }
 }
-}
+}*/
 
-function game() {
+/*function game() {
     for (let i = 1; i <= 5; i++) {
         console.log(`Round ${i} ${playRound()}`);
     }
@@ -62,7 +101,7 @@ function scoreCount() {
 }
 
 
-/*function playerChoice(rock, paper, scissors) {
+function playerChoice(rock, paper, scissors) {
     if (rock) {
         return 'ROCK';
     }else if (paper){
