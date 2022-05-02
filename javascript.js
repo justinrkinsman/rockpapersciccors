@@ -21,23 +21,23 @@ function playRound(playerChoice, computerPlay) {
     }
     if (playerChoice === 'Rock') {
         if (computerPlay === 'Paper') {
-            return document.getElementById('currentRound').textContent = `You Win! ${playerChoice} beats ${computerPlay} - Player Score: ${playerScore++}`;
+            return document.getElementById('currentRound').textContent = `You Win! ${playerChoice} beats ${computerPlay} - Player Score: ${++playerScore}`;
         }else{
-            return document.getElementById('currentRound').textContent = `You Lose! ${computerPlay} beats ${playerChoice} - Computer Score: ${computerScore++}`;
+            return document.getElementById('currentRound').textContent = `You Lose! ${computerPlay} beats ${playerChoice} - Computer Score: ${++computerScore}`;
         }
     }
     if (playerChoice === 'Paper') {
         if (computerPlay == 'Rock') {
-            return document.getElementById('currentRound').textContent = `You Win! ${playerChoice} beats ${computerPlay} - Player Score: ${playerScore++}`;
+            return document.getElementById('currentRound').textContent = `You Win! ${playerChoice} beats ${computerPlay} - Player Score: ${++playerScore}`;
         }else{
-            return document.getElementById('currentRound').textContent = `You Lose! ${computerPlay} beats ${playerChoice} - Computer Score: ${computerScore++}`;
+            return document.getElementById('currentRound').textContent = `You Lose! ${computerPlay} beats ${playerChoice} - Computer Score: ${++computerScore}`;
         }
     }
     if (playerChoice === 'Scissors') {
         if (computerPlay === 'Paper') {
-            return document.getElementById('currentRound').textContent = `You Win! ${playerChoice} beats ${computerPlay} - Player Score: ${playerScore++}`;
+            return document.getElementById('currentRound').textContent = `You Win! ${playerChoice} beats ${computerPlay} - Player Score: ${++playerScore}`;
         }else{
-            return document.getElementById('currentRound').textContent = `You Lose! ${computerPlay} beats ${playerChoice} - Computer Score: ${computerScore++}`;
+            return document.getElementById('currentRound').textContent = `You Lose! ${computerPlay} beats ${playerChoice} - Computer Score: ${++computerScore}`;
         }
     }
 }
