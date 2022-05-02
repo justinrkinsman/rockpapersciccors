@@ -8,38 +8,36 @@ options.forEach((option) => {
     const computerPlay = computerChoice[Math.floor(Math.random() * 3)];
     playRound(playerChoice, computerPlay)
     updateScore();
+    if (checkWinner()) {
+        playerScore = computerScore = 0;
+        updateScore();
+    }
     });
 });
 
 function playRound(playerChoice, computerPlay) {
     if (playerChoice === computerPlay) {
-        return(`Tie game`);
+        return document.getElementById('currentRound').textContent = `Tie game`;
     }
     if (playerChoice === 'Rock') {
         if (computerPlay === 'Paper') {
-            return (`You Win! ${playerChoice} beats ${computerPlay} Player Score ${++playerScore}`);
-            playerScore++
+            return document.getElementById('currentRound').textContent = `You Win! ${playerChoice} beats ${computerPlay} - Player Score: ${playerScore++}`;
         }else{
-            return (`You Lose! ${computerPlay} beats ${playerChoice} Computer Score ${++computerScore}`);
-            computerScore++
+            return document.getElementById('currentRound').textContent = `You Lose! ${computerPlay} beats ${playerChoice} - Computer Score: ${computerScore++}`;
         }
     }
     if (playerChoice === 'Paper') {
         if (computerPlay == 'Rock') {
-            return (`You Win! ${playerChoice} beats ${computerPlay} Player Score ${++playerScore}`);
-            playerScore++
+            return document.getElementById('currentRound').textContent = `You Win! ${playerChoice} beats ${computerPlay} - Player Score: ${playerScore++}`;
         }else{
-            return (`You Lose! ${computerPlay} beats ${playerChoice} Computer Score ${++computerScore}`);
-            computerScore++
+            return document.getElementById('currentRound').textContent = `You Lose! ${computerPlay} beats ${playerChoice} - Computer Score: ${computerScore++}`;
         }
     }
     if (playerChoice === 'Scissors') {
         if (computerPlay === 'Paper') {
-            return (`You Win! ${playerChoice} beats ${computerPlay} Player Score ${++playerScore}`);
-            playerScore++
+            return document.getElementById('currentRound').textContent = `You Win! ${playerChoice} beats ${computerPlay} - Player Score: ${playerScore++}`;
         }else{
-            return (`You Lose! ${computerPlay} beats ${playerChoice} Computer Score ${++computerScore}`)
-            computerScore++
+            return document.getElementById('currentRound').textContent = `You Lose! ${computerPlay} beats ${playerChoice} - Computer Score: ${computerScore++}`;
         }
     }
 }
@@ -50,7 +48,15 @@ function updateScore() {
 }
 
 function checkWinner () {
-
+    if (playerScore === 5 || computerScore === 5) {
+        const winner =
+            playerScore === 5
+                ? `You win! ${playerScore} - ${computerScore}`
+                : `You lose! ${computerScore} - ${playerScore}`;
+            alert(winner);
+            return true;
+        }
+        return false;
 }
 
 
