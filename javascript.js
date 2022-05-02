@@ -6,39 +6,17 @@ function computerPlay() {
 let playerScore = 0;
 let computerScore = 0;
 
-let rock = document.createElement('button');
-rock.innerHTML = 'Rock';
-document.body.appendChild(rock);
-rock.addEventListener('click', function(e){
-    return 'ROCK'
-}, playRound());
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', playRound());
 
-let paper = document.createElement('button');
-paper.innerHTML = 'Paper';
-document.body.appendChild(paper);
-paper.addEventListener('click', function(e){
-    return 'PAPER'
-}, playRound());
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', playRound());
 
-let scissors = document.createElement('button');
-scissors.innerHTML = 'Scissors';
-document.body.appendChild(scissors);
-scissors.addEventListener('click', function(e){
-    return 'SCISSORS'
-}, playRound());
-
-function playerChoice() {
-    if (rock) {
-        return 'ROCK';
-    }else if (paper){
-        return 'PAPER';
-    }else if (scissors){
-        return 'SCISSORS';
-    }
-};
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', playRound());
 
 function playRound() {
-    let playerSelection = playerChoice();
+    let playerSelection;
     let computerSelection = computerPlay();
 
     let playerWin = (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') || (playerSelection == 'PAPER' && computerSelection == 'ROCK') || (playerSelection == 'SCISSORS' && computerSelection == 'PAPER');
@@ -83,4 +61,13 @@ function scoreCount() {
     }
 }
 
-//playerChoice();
+
+/*function playerChoice(rock, paper, scissors) {
+    if (rock) {
+        return 'ROCK';
+    }else if (paper){
+        return 'PAPER';
+    }else if (scissors){
+        return 'SCISSORS';
+    }
+}*/
